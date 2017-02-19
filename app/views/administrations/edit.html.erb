@@ -1,0 +1,29 @@
+<h1>Editing article</h1>
+
+<%= form_for :administration, url: administration_path(@administration), method: :patch do |f| %>
+    <p>
+      <%= f.label :"Login de l'admin" %><br>
+      <%= f.text_field :login %>
+    </p>
+    <p>
+      <%= f.label :"Email de l'admin" %><br>
+      <%= f.text_field :email %>
+    </p>
+    <p>
+      <%= f.label :"Password de l'admin" %><br>
+      <%= f.text_field :password %>
+    </p>
+    <p>
+      <%= f.label :"Firstname de l'admin" %><br>
+      <%= f.text_field :firstname %>
+    </p>
+    <p>
+      <%= f.label :"Lastname de l'admin" %><br>
+      <%= f.text_field :lastname %>
+    </p>
+    <p>
+      <%= f.submit "Edité l'admin"%>
+    </p>
+
+<% end %>
+<%= link_to 'Retour', controller: "home", action: "index" %>

@@ -1,0 +1,25 @@
+<h1>Création d'un administrateur</h1>
+<%= form_for :administration, url: administrations_path do |f| %>
+    <p>
+      <%= f.label :"Login de l'administrateur" %><br>
+      <%= f.text_field :login %>
+    </p>
+    <p>
+      <%= f.label :"Adresse email de l'administrateur" %><br>
+      <%= f.text_field :email %>
+    </p>
+    <p>
+      <%= f.hidden_field :password %>
+    </p>
+    <p>
+      <%= f.label :"Prénom de l'administrateur" %><br>
+      <%= f.text_field :firstname %>
+    </p>
+    <p>
+      <%= f.label :"Nom de l'administrateur" %><br>
+      <%= f.text_field :lastname %>
+    </p>
+    <%= f.submit "Crée le compte"%>
+    </p>
+    <%= link_to 'Retour', controller: "home", action: "index" %>
+<% end %>

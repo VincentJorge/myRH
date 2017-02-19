@@ -1,0 +1,11 @@
+<h1>Création d'un questionnaire</h1>
+<%= form_for :questionnaire, url: questionnaires_path, :'data-type' => 'json', :html => {:id => "questionnaire"} do |f| %>
+    <p>
+      <%= f.submit "Crée un questionnaire" %>
+    </p>
+<% end %>
+<button id="select">Crée une question avec comme réponse un select</button><br>
+<button id="textarea">Crée une question avec comme réponse un textarea</button><br>
+<button id="radio">Crée une question avec comme réponse un radio</button><br>
+<button id="checkbox">Crée une question avec comme réponse un checkbox</button><br>
+<button id="input">Crée une question avec comme réponse un input type text</button>

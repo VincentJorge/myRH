@@ -1,0 +1,29 @@
+<h1>Edition d'instance</h1>
+
+<%= form_for :instance, url: instance_path(@instance), method: :patch do |f| %>
+
+
+    <p>
+      <%= f.label :"Nom de l'entreprise :" %><br>
+      <%= f.collection_select :name, Entreprise.all, :name, :name, prompt: true %>
+    </p>
+
+    <p>
+      <%= f.label :"Ville de l'entreprise :" %><br>
+      <%= f.collection_select :city, Entreprise.all, :city, :city, prompt: true %>
+    </p>
+    <p>
+      <%= f.label :"Année de l'instance :" %><br>
+      <%= f.select :model_year, (Time.zone.now.year)..(Time.zone.now.year + 20) %>
+    </p>
+    <p>
+      <%= f.label :"Mois de l'instance :" %><br>
+      <%= f.select :model_mounth, options_for_select([ "Janvier", "Fevrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Decembre" ]) %>
+    </p>
+    <p>
+    <p>
+      <%= f.submit "Edité cette instance" %>
+    </p>
+
+<% end %>
+<%= link_to 'Retour', controller: "home", action: "index" %>

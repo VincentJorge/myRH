@@ -1,0 +1,23 @@
+<h1>Listes des instances</h1>
+<table>
+  <tr>
+    <th> Année - </th>
+    <th> Mois -</th>
+    <th> Nom de l'entreprise -</th>
+    <th> Ville</th>
+  </tr>
+
+  <% @instances.each do |instance| %>
+      <tr>
+        <td><%= instance.model_year %></td>
+        <td><%= instance.model_mounth %></td>
+        <td><%= instance.name %></td>
+        <td><%= instance.city %></td>
+        <td><%= link_to 'Supprimer', instance_path(instance),
+                        method: :delete,
+                        data: { confirm: 'Vous êtes sur ?' } %></td>
+        <td><%= link_to 'Edit', edit_instance_path(instance) %></td>
+      </tr>
+  <% end %>
+</table>
+<%= link_to 'Retour', controller: "home", action: "index" %>

@@ -1,0 +1,16 @@
+<h1>Création d'entreprise</h1>
+<%= form_for :entreprise, url: entreprises_path do |f| %>
+    <p>
+      <%= f.label :"Nom de l'entreprise"%><br>
+      <%= f.text_field :name %>
+    </p>
+
+    <p>
+      <%= f.label :"Ville de l'entreprise" %><br>
+      <%= f.text_field :city %>
+    </p>
+
+    <p>
+      <%= f.submit "Crée une entreprise"%>
+    </p>
+<% end %>

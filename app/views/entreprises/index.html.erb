@@ -1,0 +1,22 @@
+<h1>Listes des entreprises</h1>
+
+<table>
+  <tr>
+    <th>Nom de l'entreprise - </th>
+    <th>Ville de l'entreprise</th>
+  </tr>
+  <% if flash[:notice] %>
+      <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
+  <% @entreprises.each do |entreprise| %>
+      <tr>
+        <td><%= entreprise.name %></td>
+        <td><%= entreprise.city %></td>
+        <td><%= link_to 'Supprimer', entreprise_path(entreprise),
+                        method: :delete,
+                        data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_entreprise_path(entreprise) %></td>
+      </tr>
+  <% end %>
+</table>
+<%= link_to 'Retour', controller: "home", action: "index" %>

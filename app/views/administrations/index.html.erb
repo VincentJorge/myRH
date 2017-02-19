@@ -1,0 +1,28 @@
+<h1>Listes des administrateurs</h1>
+
+<table>
+  <tr>
+    <th>Login de l'admin -</th>
+    <th>Email de l'admin -</th>
+    <th>Password de l'admin -</th>
+    <th>Firstname de l'admin -</th>
+    <th>Lastname de l'admin</th>
+  </tr>
+  <% if flash[:notice] %>
+      <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
+  <% @administration.each do |adminisration| %>
+      <tr>
+        <td><%= adminisration.login %></td>
+        <td><%= adminisration.email %></td>
+        <td><%= adminisration.password %></td>
+        <td><%= adminisration.firstname %></td>
+        <td><%= adminisration.lastname %></td>
+        <td><%= link_to 'Supprimer', administration_path(adminisration),
+                       method: :delete,
+                       data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_administration_path(adminisration) %></td>
+      </tr>
+  <% end %>
+</table>
+<%= link_to 'Retour', controller: "home", action: "index" %>

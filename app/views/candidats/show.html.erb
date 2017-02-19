@@ -1,0 +1,36 @@
+<p>
+  <strong>Nom de l'entreprise :</strong>
+  <%= @instances.name %>
+</p>
+<p>
+  <strong>Ville de l'instance :</strong>
+  <%= @instances.city %>
+</p>
+<p>
+  <strong>Année de l'instance :</strong>
+  <%= @instances.model_year %>
+</p>
+<p>
+  <strong>Mois de l'instance :</strong>
+  <%= @instances.model_mounth %>
+</p>
+<%= form_for :candidat, url: candidats_path  do |f| %>
+    <p>
+      <%= f.label :firstname, "Prénom:" %>
+      <%= f.text_field :firstname  %>
+    </p>
+    <p>
+      <%= f.label :lastname, "Nom de Famille:" %>
+      <%= f.text_field :lastname %>
+    </p>
+    <p>
+      <%= f.label :born, "Date de Naissance:" %>
+      <%= f.date_field :born %>
+    </p>
+    <p>
+      <%= f.label :email, "Adresse Email:" %>
+      <%= f.email_field :email %>
+    </p>
+    <%= f.submit "s'inscrire" %>
+<% end %>
+<%= link_to 'Retour', controller: "candidats", action: "index" %>

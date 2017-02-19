@@ -1,0 +1,34 @@
+<h1>Editing article</h1>
+
+<%= form_for :entreprise, url: entreprise_path(@entreprise), method: :patch do |f| %>
+
+    <% if @entreprise.errors.any? %>
+        <div id="error_explanation">
+          <h2>
+            <%= pluralize(@entreprise.errors.count, "error") %> prohibited
+            this article from being saved:
+          </h2>
+          <ul>
+            <% @entreprise.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <p>
+      <%= f.label :"Nom de l'entreprise :" %><br>
+      <%= f.text_field :name %>
+    </p>
+
+    <p>
+      <%= f.label :"Ville de l'entreprise :" %><br>
+      <%= f.text_field :city %>
+    </p>
+
+    <p>
+      <%= f.submit %>
+    </p>
+
+<% end %>
+<%= link_to 'Retour', controller: "home", action: "index" %>
